@@ -67,7 +67,9 @@ export const kakaoCallback = async (req, res) => {
     // 쿠키에 토큰 저장 및 프론트엔드로 리다이렉트
     res
       .cookie("token", token, cookieOptions)
-      .redirect(`${process.env.FRONTEND_URL || "http://localhost:5173"}/`);
+      .redirect(
+        `${process.env.FRONTEND_URL || "https://toktoklog-front.vercel.app"}/`
+      );
   } catch (error) {
     console.error("카카오 로그인 오류:", error);
     res
