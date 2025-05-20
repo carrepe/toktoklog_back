@@ -60,6 +60,11 @@ app.use("/comments", commentRoutes); // /comments, /comments/:postId 등
 app.use("/users", userRoutes); // /users/:username, /users/update 등
 app.use("/auth/kakao", kakaoAuthRoutes);
 
+// 기본 루트 경로 핸들러 추가
+app.get("/", (req, res) => {
+  res.send("백엔드 서버가 정상적으로 작동하고 있습니다.");
+});
+
 // 404 처리 - 정의되지 않은 경로에 대한 처리
 app.use((req, res) => {
   res.status(404).json({ error: "요청한 페이지를 찾을 수 없습니다." });
